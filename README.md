@@ -88,10 +88,9 @@ Este portfólio representa minha evolução como desenvolvedor e reúne projetos
 
 ## 📫 Contato
 
-- LinkedIn
-- GitHub
-- Email
+- LinkedIn: https://www.linkedin.com/in/mateus-costa-66715414a/
+- Email: cpsmateus16@gmail.com
 
 ---
 
-Desenvolvido por **Seu Nome**
+Desenvolvido por **Mateus Costa**
