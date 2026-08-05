@@ -1,117 +1,97 @@
-# Portfólio — jogos, aplicativos e experiências web
+# 🚀 Portfólio Pessoal
 
-Portfólio construído com Next.js, React, TypeScript, Tailwind CSS, Framer Motion e Lucide React. Todo o conteúdo de apresentação já foi preenchido com foco em jogos, aplicativos, desenvolvimento web, UX, responsividade e código limpo.
+Meu portfólio profissional desenvolvido com foco em performance, experiência do usuário e design moderno.
 
-A única seção deixada vazia de propósito é **Projetos**.
+O objetivo deste projeto é apresentar minha trajetória como desenvolvedor, minhas habilidades e os projetos que venho desenvolvendo nas áreas de desenvolvimento de jogos, aplicações web e produtos digitais.
 
-## Como executar
+## ✨ Demonstração
 
-```powershell
+🔗 Em breve
+
+## 📸 Preview
+
+<img src="./public/preview.png" alt="Preview do Portfólio" />
+
+## 🛠 Tecnologias
+
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- Framer Motion
+- Lucide Icons
+- ESLint
+- Prettier
+
+## 🎯 Características
+
+- Layout totalmente responsivo
+- Dark Mode
+- Animações suaves
+- SEO otimizado
+- Componentização
+- Código limpo
+- Arquitetura escalável
+- Alto desempenho
+- Acessibilidade
+
+## 📂 Estrutura
+
+```text
+app/
+components/
+lib/
+public/
+```
+
+## 💻 Executando localmente
+
+Clone o repositório
+
+```bash
+git clone https://github.com/SEU_USUARIO/portfolio.git
+```
+
+Entre na pasta
+
+```bash
+cd portfolio
+```
+
+Instale as dependências
+
+```bash
 npm install
+```
+
+Execute
+
+```bash
 npm run dev
 ```
 
-Acesse `http://localhost:3000`.
+Abra
 
-## Personalização essencial
-
-Abra `lib/data.ts` e altere apenas o objeto `profile`:
-
-```ts
-export const profile = {
-  name: "Seu Nome",
-  shortName: "SN",
-  role: "Desenvolvedor de jogos, aplicativos e experiências web",
-  email: "seuemail@exemplo.com",
-  location: "Brasil",
-  github: "https://github.com/seu-usuario",
-  linkedin: "https://linkedin.com/in/seu-usuario",
-  availability: "Disponível para novos projetos e oportunidades",
-};
+```
+http://localhost:3000
 ```
 
-Também substitua `Seu Nome` e `https://seu-dominio.com` em `app/layout.tsx`.
+## 📌 Objetivo
 
-## Como cadastrar projetos
+Este portfólio representa minha evolução como desenvolvedor e reúne projetos voltados para:
 
-Arquivo: `lib/data.ts`
+- Desenvolvimento Web
+- Desenvolvimento de Jogos
+- Interfaces modernas
+- Experiência do Usuário (UX)
+- Produtos Digitais
 
-A lista começa vazia:
+## 📫 Contato
 
-```ts
-export const projects: Project[] = [];
-```
+- LinkedIn
+- GitHub
+- Email
 
-Substitua por:
+---
 
-```ts
-export const projects: Project[] = [
-  {
-    title: "Nome do projeto",
-    description:
-      "Explique o problema, a experiência criada e o principal resultado do projeto.",
-    category: "Jogo",
-    tags: ["Next.js", "TypeScript", "Pixel Art"],
-    image: "/projects/nome-do-projeto.webp",
-    liveUrl: "https://seu-projeto.com",
-    repositoryUrl: "https://github.com/seu-usuario/repositorio",
-    featured: true,
-  },
-];
-```
-
-Categorias aceitas:
-
-```ts
-"Jogo"
-"Aplicativo"
-"Aplicação web"
-```
-
-Coloque as imagens em:
-
-```text
-public/projects/
-```
-
-## Estrutura
-
-```text
-portfolio-next/
-├── app/
-│   ├── globals.css
-│   ├── layout.tsx
-│   ├── loading.tsx
-│   ├── page.tsx
-│   ├── robots.ts
-│   └── sitemap.ts
-├── components/
-│   ├── layout/header.tsx
-│   ├── sections/content.tsx
-│   ├── sections/hero.tsx
-│   ├── ui/button.tsx
-│   ├── reveal.tsx
-│   ├── theme-provider.tsx
-│   └── theme-toggle.tsx
-├── lib/
-│   ├── data.ts
-│   └── utils.ts
-├── public/projects/
-└── package.json
-```
-
-## Validação antes do deploy
-
-```powershell
-npm run lint
-npm run format:check
-npm run build
-```
-
-## Deploy na Vercel
-
-1. Publique o projeto em um repositório no GitHub.
-2. Entre na Vercel e importe o repositório.
-3. A Vercel identificará o Next.js automaticamente.
-4. Clique em **Deploy**.
-5. Atualize o domínio em `app/layout.tsx`, `app/sitemap.ts` e `app/robots.ts`.
+Desenvolvido por **Seu Nome**
