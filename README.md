@@ -4,14 +4,6 @@ Meu portfólio profissional desenvolvido com foco em performance, experiência d
 
 O objetivo deste projeto é apresentar minha trajetória como desenvolvedor, minhas habilidades e os projetos que venho desenvolvendo nas áreas de desenvolvimento de jogos, aplicações web e produtos digitais.
 
-## ✨ Demonstração
-
-🔗 Em breve
-
-## 📸 Preview
-
-<img src="./public/preview.png" alt="Preview do Portfólio" />
-
 ## 🛠 Tecnologias
 
 - Next.js
