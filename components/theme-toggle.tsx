@@ -1,28 +1,54 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
+
 import { Button } from "@/components/ui/button";
 
 export function ThemeToggle() {
-  const { resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const { resolvedTheme, setTheme } = useTheme();
 
-  useEffect(() => setMounted(true), []);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
-  const isDarkTheme = resolvedTheme === "dark";
-  const label = isDarkTheme ? "Ativar tema claro" : "Ativar tema escuro";
+  // O servidor e a primeira renderização do navegador
+  // recebem exatamente o mesmo conteúdo.
+  if (!mounted) {
+    return (
+      <Button
+        type="button"
+        variant="ghost"
+        size="icon"
+        aria-label="Alternar tema"
+        title="Alternar tema"
+      >
+        <span className="h-5 w-5" aria-hidden="true" />
+      </Button>
+    );
+  }
+
+  const isDark = resolvedTheme === "dark";
+  const accessibleLabel = isDark
+    ? "Ativar tema claro"
+    : "Ativar tema escuro";
 
   return (
     <Button
-      aria-label={label}
-      title={label}
-      size="icon"
+      type="button"
       variant="ghost"
-      onClick={() => setTheme(isDarkTheme ? "light" : "dark")}
+      size="icon"
+      aria-label={accessibleLabel}
+      title={accessibleLabel}
+      onClick={() => setTheme(isDark ? "light" : "dark")}
     >
-      {mounted && isDarkTheme ? <Sun size={18} /> : <Moon size={18} />}
+      {isDark ? (
+        <Sun className="h-5 w-5" aria-hidden="true" />
+      ) : (
+        <Moon className="h-5 w-5" aria-hidden="true" />
+      )}
     </Button>
   );
 }

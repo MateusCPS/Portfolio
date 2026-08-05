@@ -16,7 +16,7 @@ export const profile = {
   name: "Mateus Costa",
   shortName: "MC",
   role: "Desenvolvedor de jogos, aplicativos e experiências web",
-  email: "seuemail@exemplo.com",
+  email: "cpsmateus16@gmail.com",
   location: "Brasil",
   github: "https://github.com/MateusCPS",
   linkedin: "https://www.linkedin.com/in/mateus-costa-66715414a/",

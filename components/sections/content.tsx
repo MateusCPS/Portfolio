@@ -4,6 +4,7 @@ import { ArrowUpRight, Github, Mail, Plus, Rocket } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/reveal";
 import { journey, principles, profile, projects, skillGroups, specialties } from "@/lib/data";
+import { Linkedin } from "lucide-react";
 
 function SectionHeader({ eyebrow, title, description }: { eyebrow: string; title: string; description?: string }) {
   return (
@@ -138,7 +139,7 @@ export function ContentSections() {
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Button asChild><a href={`mailto:${profile.email}`}><Mail size={18} /> Enviar um e-mail</a></Button>
                 <Button asChild variant="outline"><a href={profile.github}><Github size={18} /> Ver GitHub <ArrowUpRight size={16} /></a></Button>
-                <Button asChild variant="outline"><a href={profile.linkedin}><linkedin size={18} /> Ver Linkedin <ArrowUpRight size={16} /></a></Button>
+                <Button asChild variant="outline"><a href={profile.linkedin}><Linkedin size={18} /> Ver Linkedin <ArrowUpRight size={16} /></a></Button>
               </div>
             </div>
             <Rocket className="absolute -bottom-16 -right-12 size-72 rotate-[-15deg] text-primary opacity-[0.07]" />
