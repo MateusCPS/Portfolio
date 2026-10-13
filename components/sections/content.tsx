@@ -123,8 +123,8 @@ export function ContentSections() {
               <article key={project.title} className="overflow-hidden rounded-3xl border border-border bg-card">
                 <div className="relative aspect-[16/10] overflow-hidden bg-muted">
                 <Image
-                  src={project.image}
-                  alt="Foto dos jogos"
+                  src={`${project.image}`}
+                  alt={`Captura de tela do projeto ${project.title}`}
                   fill
                   className="object-cover transition-transform duration-500 hover:scale-105"
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"

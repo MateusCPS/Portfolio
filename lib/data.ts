@@ -153,7 +153,7 @@ export type Project = {
   description: string;
   category: "Jogo" | "Aplicativo" | "Aplicação web";
   tags: string[];
-  image?: string;
+  image: string;
   liveUrl?: string;
   repositoryUrl?: string;
   featured?: boolean;
