@@ -200,7 +200,7 @@ export const projects: Project[] = [
       "Job Challenge é um jogo educativo desenvolvido para um cliente, com o objetivo de ensinar porcentagem a estudantes do ensino médio de forma interativa e envolvente. Disponível diretamente no navegador, o jogo combina desafios matemáticos com uma jornada profissional, na qual os jogadores exploram diferentes setores de uma empresa e conquistam promoções à medida que avançam.",
     category: "Jogo",
     tags: ["Unity3D", "Visual Studio", "Trivia", "Web Game", "Prototype"],
-    image: "/projects/",
+    image: "/projects/JobChallenge.png",
     liveUrl: "https://job-challenge.vercel.app",
     repositoryUrl: "https://github.com/MateusCPS/JobChallenge",
     featured: true,
