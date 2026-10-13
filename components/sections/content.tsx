@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { ArrowUpRight, Github, Mail, Plus, Rocket } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/reveal";
@@ -105,7 +106,6 @@ export function ContentSections() {
 
       <section id="projetos" className="section scroll-mt-20">
         <Reveal><SectionHeader eyebrow="Portfólio" title="Projetos que transformam aprendizado em experiência." description="Esta seção está pronta para receber seus trabalhos. Cadastre jogos, aplicativos e aplicações web no arquivo lib/data.ts." /></Reveal>
-
         {projects.length === 0 ? (
           <Reveal>
             <div className="project-empty rounded-[2rem] border border-dashed border-border p-8 text-center sm:p-14">
@@ -121,8 +121,16 @@ export function ContentSections() {
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {projects.map((project) => (
               <article key={project.title} className="overflow-hidden rounded-3xl border border-border bg-card">
-                <div className="aspect-[16/10] bg-muted" />
-                <div className="p-6"><p className="eyebrow mb-3">{project.category}</p><h3 className="text-xl font-semibold">{project.title}</h3><p className="mt-3 leading-7 text-muted-foreground">{project.description}</p><div className="mt-5 flex flex-wrap gap-2">{project.tags.map((tag) => <span key={tag} className="rounded-full bg-muted px-3 py-1 text-xs">{tag}</span>)}</div></div>
+                <div className="relative aspect-[16/10] overflow-hidden bg-muted">
+                <Image
+                  src="/projects/BuritiProject.png"
+                  alt="Captura de tela do jogo Buriti Project"
+                  fill
+                  className="object-cover transition-transform duration-500 hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                />
+              </div>
+                <div className="p-6"><p className="eyebrow mb-3">{project.category}</p><h3 className="text-xl font-semibold">{project.title}</h3><p className="mt-3 leading-7 text-muted-foreground">{project.description}</p><Button asChild variant="outline"><a href={project.liveUrl}> Ver Jogo <ArrowUpRight size={16} /></a></Button><Button asChild variant="outline"><a href={project.repositoryUrl}> Ver Repositório <ArrowUpRight size={16} /></a></Button><div className="mt-5 flex flex-wrap gap-2">{project.tags.map((tag) => <span key={tag} className="rounded-full bg-muted px-3 py-1 text-xs">{tag}</span>)}</div></div>
               </article>
             ))}
           </div>

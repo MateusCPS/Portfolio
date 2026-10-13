@@ -160,4 +160,17 @@ export type Project = {
 };
 
 // Adicione seus projetos aqui. Consulte o README para ver exemplos.
-export const projects: Project[] = [];
+export const projects: Project[] = [
+  {
+    title: "Buriti Project",
+    description:
+      "Jogo desenvolvido para a GameJam Plus, um jogo de tower defense 2D com inspirações da lenda indigena da árvore buriti.",
+    category: "Jogo",
+    tags: ["Unity3D", "Visual Studio"],
+    image: "/projects/BuritiProject.png",
+    liveUrl: "https://mateus-costa.itch.io/the-buritis-project",
+    repositoryUrl: "https://github.com/FernandoBMSouza/GameJamSX2",
+    featured: true,
+  },
+  
+];
