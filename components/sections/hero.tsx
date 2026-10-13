@@ -20,10 +20,10 @@ export function Hero() {
 
           <p className="eyebrow mb-5">{profile.role}</p>
           <h1 className="heading max-w-4xl">
-            Transformo ideias em experiências digitais que convidam as pessoas a interagir.
+            Transformando ideias em experiências digitais.
           </h1>
           <p className="mt-7 max-w-2xl text-lg leading-8 text-muted-foreground">
-            Crio jogos, aplicativos e aplicações web com foco em experiência do usuário, responsividade e código limpo. Meu objetivo é unir criatividade e tecnologia para desenvolver produtos funcionais, intuitivos e com identidade própria.
+            Desenvolvedor focado em experiências interativas, combinando código, design e pensamento criativo.
           </p>
 
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">

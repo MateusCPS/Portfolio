@@ -80,7 +80,7 @@ export const skillGroups = [
   {
     title: "Desenvolvimento de Jogos",
     icon: Gamepad2,
-    skills: ["Unity 3d", "Game design", "Unreal 5"],
+    skills: ["Unity 3d", "Game Design"],
   },
   {
     title: "Aplicativos mobile",
@@ -144,7 +144,7 @@ export const journey = [
     number: "05",
     title: "Próximo nível",
     description:
-      "Hoje direciono minha evolução para jogos, aplicativos e aplicações web modernas, buscando criar produtos com identidade, código limpo e experiências memoráveis.",
+      "Hoje direciono minha evolução principalmente para jogos, aplicativos e aplicações web modernas, buscando criar produtos com identidade, código limpo e experiências memoráveis.",
   },
 ];
 
@@ -164,13 +164,45 @@ export const projects: Project[] = [
   {
     title: "Buriti Project",
     description:
-      "Jogo desenvolvido para a GameJam Plus, um jogo de tower defense 2D com inspirações da lenda indigena da árvore buriti.",
+      "Jogo desenvolvido para a GameJam Plus, um tower defense 2D inspirado na lenda indígena da árvore buriti. O jogador deve proteger seu território utilizando estratégias e defesas para enfrentar as ameaças, em uma experiência que combina ação, estratégia e elementos da cultura brasileira.",
     category: "Jogo",
-    tags: ["Unity3D", "Visual Studio"],
+    tags: ["Unity3D", "Visual Studio", "Tower Defense", "2D Game"],
     image: "/projects/BuritiProject.png",
     liveUrl: "https://mateus-costa.itch.io/the-buritis-project",
     repositoryUrl: "https://github.com/FernandoBMSouza/GameJamSX2",
     featured: true,
   },
-  
+  {
+    title: "Semeando Saberes",
+    description:
+      "Este jogo nasceu de uma pesquisa que teve como objetivo criar uma experiência digital única, voltada para jovens de comunidades rurais. Nosso foco foi avaliar o conhecimento dos jovens sobre a agricultura e despertar o entusiasmo por meio de uma abordagem lúdica.",
+    category: "Jogo",
+    tags: ["Unity3D", "Visual Studio", "Simulator", "Serious Game", "Virtual Reality(VR)"],
+    image: "/projects/SemeandoSaberes.png",
+    liveUrl: "https://z3z0m.itch.io/semeando-saberes-tcp6",
+    repositoryUrl: "https://github.com/BurnOut-Games/TCP6_SemeandoSaberes",
+    featured: true,
+  },
+  {
+    title: "Musician Life Simulator",
+    description:
+      "Jogo musical que acompanha a jornada de um aspirante a músico em busca de realizar o sonho de seu avô falecido: tocar em grandes palcos internacionais. Para alcançar esse objetivo, o jogador precisa aprimorar suas habilidades musicais, conquistar fama e dinheiro por meio de vídeos e apresentações, enquanto administra sua energia e saúde mental.",
+    category: "Jogo",
+    tags: ["Unity3D", "Visual Studio", "Tycoon", "3D Game"],
+    image: "/projects/MusicianLifeSimulator.png",
+    liveUrl: "https://z3z0m.itch.io/musician-life-simulator-tcp4",
+    repositoryUrl: "https://github.com/BurnOut-Games/TPC4",
+    featured: true,
+  },
+  {
+    title: "Job Challenge",
+    description:
+      "Job Challenge é um jogo educativo desenvolvido para um cliente, com o objetivo de ensinar porcentagem a estudantes do ensino médio de forma interativa e envolvente. Disponível diretamente no navegador, o jogo combina desafios matemáticos com uma jornada profissional, na qual os jogadores exploram diferentes setores de uma empresa e conquistam promoções à medida que avançam.",
+    category: "Jogo",
+    tags: ["Unity3D", "Visual Studio", "Trivia", "Web Game", "Prototype"],
+    image: "/projects/",
+    liveUrl: "https://job-challenge.vercel.app",
+    repositoryUrl: "https://github.com/MateusCPS/JobChallenge",
+    featured: true,
+  },
 ];

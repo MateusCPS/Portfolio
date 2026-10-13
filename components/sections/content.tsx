@@ -32,10 +32,10 @@ export function ContentSections() {
                 Sou um desenvolvedor em evolução contínua, interessado especialmente em jogos, aplicativos e experiências web interativas. Aprendo construindo: cada projeto é uma oportunidade de explorar novas tecnologias, resolver problemas e transformar uma ideia em algo que as pessoas realmente possam usar.
               </p>
               <p>
-                Meu trabalho combina desenvolvimento e visão de produto. Não penso apenas no código, mas também na clareza da navegação, na adaptação para dispositivos móveis, no ritmo das interações e na forma como cada decisão afeta quem está usando a aplicação.
+                Meu trabalho combina desenvolvimento e visão de produto. Não penso apenas no código, mas também na usabilidade e na forma como cada decisão afeta quem está usando a aplicação.
               </p>
               <p>
-                Tenho interesse em projetos que misturam educação, entretenimento e tecnologia. Um exemplo é o desenvolvimento de experiências gamificadas com perguntas, níveis de dificuldade, progressão e identidade visual em pixel art — sempre buscando tornar o aprendizado mais envolvente.
+                Tenho interesse no desenvolvimento de jogos de entretenimento que vão além da diversão, utilizando mecânicas, narrativas e dinâmicas de jogo para transmitir mensagens, provocar reflexões e criar experiências marcantes. Gosto de explorar como a interação do jogador com o jogo pode dar significado à história e às ideias que ele busca comunicar, unindo criatividade, tecnologia e design.
               </p>
             </div>
           </div>
@@ -105,12 +105,12 @@ export function ContentSections() {
       </section>
 
       <section id="projetos" className="section scroll-mt-20">
-        <Reveal><SectionHeader eyebrow="Portfólio" title="Projetos que transformam aprendizado em experiência." description="Esta seção está pronta para receber seus trabalhos. Cadastre jogos, aplicativos e aplicações web no arquivo lib/data.ts." /></Reveal>
+        <Reveal><SectionHeader eyebrow="Portfólio" title="Projetos desenvolvidos" description="Esta seção serve para demonstrar minhas habilidades com os jogos que eu desempenhei como programador" /></Reveal>
         {projects.length === 0 ? (
           <Reveal>
             <div className="project-empty rounded-[2rem] border border-dashed border-border p-8 text-center sm:p-14">
               <div className="mx-auto grid size-16 place-items-center rounded-2xl bg-primary text-primary-foreground shadow-lg shadow-primary/20"><Plus size={28} /></div>
-              <h3 className="mt-6 text-2xl font-semibold">Seus projetos entrarão aqui</h3>
+              <h3 className="mt-6 text-2xl font-semibold">Projetos</h3>
               <p className="mx-auto mt-3 max-w-xl leading-7 text-muted-foreground">
                 A estrutura já suporta título, descrição, categoria, tecnologias, imagem, link do projeto e repositório. O README possui um exemplo pronto para copiar.
               </p>
@@ -123,8 +123,8 @@ export function ContentSections() {
               <article key={project.title} className="overflow-hidden rounded-3xl border border-border bg-card">
                 <div className="relative aspect-[16/10] overflow-hidden bg-muted">
                 <Image
-                  src="/projects/BuritiProject.png"
-                  alt="Captura de tela do jogo Buriti Project"
+                  src={project.image}
+                  alt="Foto dos jogos"
                   fill
                   className="object-cover transition-transform duration-500 hover:scale-105"
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
