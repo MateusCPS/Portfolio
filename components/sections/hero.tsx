@@ -31,7 +31,7 @@ export function Hero() {
               <a href="#projetos">Explorar projetos <ArrowDownRight size={18} /></a>
             </Button>
             <Button asChild variant="outline">
-              <a href="#sobre">Conhecer minha trajetória</a>
+              <a href="#trajetoria">Conhecer minha trajetória</a>
             </Button>
           </div>
 

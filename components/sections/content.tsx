@@ -4,7 +4,8 @@ import Image from "next/image";
 import { ArrowUpRight, Github, Mail, Plus, Rocket } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/reveal";
-import { journey, principles, profile, projects, skillGroups, specialties } from "@/lib/data";
+import { journey, principles, profile, projects, skillGroups, skillInfo, specialties } from "@/lib/data";
+import { SkillTooltip } from "@/components/skill-tooltip";
 import { Linkedin } from "lucide-react";
 
 function SectionHeader({ eyebrow, title, description }: { eyebrow: string; title: string; description?: string }) {
@@ -77,9 +78,9 @@ export function ContentSections() {
           {skillGroups.map((group, index) => (
             <Reveal key={group.title} delay={index * 0.06}>
               <article className="rounded-3xl border border-border bg-card p-7">
-                <div className="mb-6 flex items-center gap-3"><div className="icon-box"><group.icon size={22} /></div><h3 className="text-xl font-semibold">{group.title}</h3></div>
+                <div className="mb-6 flex items-center gap-3"><div className="icon-box"><group.icon size={22} /></div><h3 className="text-xl font-semibold">{group.title}</h3></div><div className="mt-3 leading-7 text-muted-foreground">{group.description}</div>
                 <div className="flex flex-wrap gap-2">
-                  {group.skills.map((skill) => <span key={skill} className="rounded-full border border-border bg-background px-3 py-2 text-sm text-muted-foreground">{skill}</span>)}
+                  {group.skills.map((skill) => <SkillTooltip key={skill} label={skill} description={skillInfo[skill]} />)}
                 </div>
               </article>
             </Reveal>
@@ -95,8 +96,37 @@ export function ContentSections() {
               <Reveal key={item.number} delay={index * 0.06}>
                 <article className="relative mb-12 last:mb-0">
                   <span className="absolute -left-[3.15rem] grid size-9 place-items-center rounded-full border border-primary bg-background font-mono text-xs text-primary md:-left-[4.15rem]">{item.number}</span>
-                  <h3 className="text-2xl font-semibold">{item.title}</h3>
+                  <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                    <h3 className="text-2xl font-semibold">{item.title}</h3>
+                    <span className="font-mono text-sm text-primary">{item.period}</span>
+                  </div>
                   <p className="mt-3 max-w-3xl leading-7 text-muted-foreground">{item.description}</p>
+                  {item.highlights && (
+                    <ul className="mt-3 max-w-3xl list-disc space-y-1.5 pl-5 leading-7 text-muted-foreground marker:text-primary">
+                      {item.highlights.map((highlight) => (
+                        <li key={highlight}>{highlight}</li>
+                      ))}
+                    </ul>
+                  )}
+                  {item.tags && (
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {item.tags.map((tag) => (
+                        <span key={tag} className="rounded-full border border-border bg-background px-3 py-1 text-xs text-muted-foreground">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                  {item.link && (
+                    <a
+                      href={item.link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary transition hover:underline"
+                    >
+                      {item.link.label} <ArrowUpRight size={14} />
+                    </a>
+                  )}
                 </article>
               </Reveal>
             ))}
@@ -105,14 +135,14 @@ export function ContentSections() {
       </section>
 
       <section id="projetos" className="section scroll-mt-20">
-        <Reveal><SectionHeader eyebrow="Portfólio" title="Projetos desenvolvidos" description="Esta seção serve para demonstrar minhas habilidades com os jogos que eu desempenhei como programador" /></Reveal>
+        <Reveal><SectionHeader eyebrow="Portfólio" title="Projetos desenvolvidos" description="Conheça alguns dos jogos que desenvolvi, explorando diferentes mecânicas, narrativas e desafios técnicos. Cada projeto representa uma oportunidade de transformar ideias em experiências interativas e aplicar meus conhecimentos em programação e desenvolvimento de jogos." /></Reveal>
         {projects.length === 0 ? (
           <Reveal>
             <div className="project-empty rounded-[2rem] border border-dashed border-border p-8 text-center sm:p-14">
               <div className="mx-auto grid size-16 place-items-center rounded-2xl bg-primary text-primary-foreground shadow-lg shadow-primary/20"><Plus size={28} /></div>
               <h3 className="mt-6 text-2xl font-semibold">Projetos</h3>
               <p className="mx-auto mt-3 max-w-xl leading-7 text-muted-foreground">
-                A estrutura já suporta título, descrição, categoria, tecnologias, imagem, link do projeto e repositório. O README possui um exemplo pronto para copiar.
+                Conheça alguns dos jogos que desenvolvi, explorando diferentes mecânicas, narrativas e desafios técnicos. Cada projeto representa uma oportunidade de transformar ideias em experiências interativas e aplicar meus conhecimentos em programação e desenvolvimento de jogos.
               </p>
               <div className="mt-7 inline-flex items-center gap-2 rounded-full bg-muted px-4 py-2 font-mono text-sm text-muted-foreground">lib/data.ts → projects</div>
             </div>

@@ -74,25 +74,52 @@ export const specialties = [
 export const skillGroups = [
   {
     title: "Desenvolvimento web",
+    description: "Desenvolvimento de aplicações web modernas e responsivas, com foco em interfaces intuitivas, componentes reutilizáveis e organização de código.",
     icon: Code2,
     skills: ["Next.js", "React", "TypeScript", "JavaScript", "HTML5", "CSS3"],
   },
   {
     title: "Desenvolvimento de Jogos",
+    description: "Criação de experiências interativas que combinam programação, mecânicas de jogo e narrativa, buscando dar significado às ações do jogador e tornar cada experiência memorável.",
     icon: Gamepad2,
     skills: ["Unity 3d", "Game Design"],
   },
   {
     title: "Aplicativos mobile",
+    description: "Desenvolvimento de aplicações mobile com atenção à experiência do usuário, à organização das interfaces e à criação de soluções funcionais para dispositivos Android.",
     icon: Sparkles,
     skills: ["UX/UI", "Android Studio", "Kotlin", "Java"],
   },
   {
     title: "Qualidade e entrega",
+    description: "Organização e acompanhamento de projetos por meio de controle de versão, prototipação e ferramentas de colaboração, contribuindo para um desenvolvimento mais estruturado e consistente.",
     icon: Rocket,
     skills: ["Git", "GitHub", "Prototipação", "Figma", "Notion", "Metodologias Ágeis (Scrum)"],
   },
 ];
+
+// Explicação curta exibida ao passar o mouse (ou tocar) em cada competência.
+// A chave precisa ser exatamente igual ao nome usado em skillGroups.
+export const skillInfo: Record<string, string> = {
+  "Next.js": "Framework baseado em React para criar sites e aplicações web rápidas, com rotas, renderização no servidor e otimização automática.",
+  React: "Biblioteca JavaScript para construir interfaces a partir de componentes reutilizáveis.",
+  TypeScript: "JavaScript com tipagem estática, que ajuda a encontrar erros antes de o código rodar e deixa projetos maiores mais seguros.",
+  JavaScript: "A linguagem de programação da web, responsável pela interatividade das páginas.",
+  HTML5: "Linguagem de marcação que define a estrutura e o conteúdo de uma página web.",
+  CSS3: "Linguagem de estilos que controla cores, layout, responsividade e animações das páginas.",
+  "Unity 3d": "Motor de jogos usado para criar jogos 2D, 3D e VR, programados em C#, para PC, web e dispositivos móveis.",
+  "Game Design": "Planejamento das regras, mecânicas, progressão e experiência de um jogo, definindo o que torna ele divertido e significativo.",
+  "UX/UI": "UX é a experiência de uso (o quanto algo é fácil e agradável de usar); UI é a interface visual com que o usuário interage.",
+  "Android Studio": "Ambiente oficial do Google para desenvolver, testar e publicar aplicativos Android.",
+  Kotlin: "Linguagem moderna recomendada pelo Google para o desenvolvimento de aplicativos Android.",
+  Java: "Linguagem orientada a objetos muito usada em sistemas corporativos, back-end e aplicativos Android.",
+  Git: "Sistema de controle de versão que registra o histórico de alterações do código e permite trabalhar em equipe sem conflitos.",
+  GitHub: "Plataforma para hospedar repositórios Git, revisar código e colaborar em projetos.",
+  "Prototipação": "Criação de versões simplificadas de telas ou jogos para testar ideias antes do desenvolvimento completo.",
+  Figma: "Ferramenta de design colaborativo para criar layouts, protótipos e interfaces.",
+  Notion: "Ferramenta de organização para documentação, planejamento e gestão de tarefas do projeto.",
+  "Metodologias Ágeis (Scrum)": "Forma de organizar o trabalho em ciclos curtos (sprints), com reuniões diárias, planejamento e retrospectivas para entregar valor continuamente.",
+};
 
 export const principles = [
   {
@@ -115,36 +142,84 @@ export const principles = [
   },
 ];
 
-export const journey = [
+export const journey: JourneyItem[] = [
   {
     number: "01",
-    title: "Da curiosidade à construção",
+    title: "A Curiosidade",
+    period: "2020",
     description:
-      "Minha trajetória começou pela vontade de entender como sites, sistemas e jogos funcionavam. A prática transformou essa curiosidade em capacidade de construir experiências próprias para a web.",
+      "Sempre tive curiosidade de saber como eram feitas as coisas que a gente usa todo dia. Fui puxando esse fio e acabei chegando nos jogos. Quando percebi, já estava inscrito no curso de Jogos Digitais do IFRJ, em Engenheiro Paulo de Frontin.",
   },
   {
     number: "02",
-    title: "Aprendizado através de projetos",
+    title: "Tecnologia em Jogos Digitais — IFRJ",
+    period: "2021 – 2024",
     description:
-      "Passei a desenvolver projetos reais para aprender: interfaces, páginas responsivas, aplicações interativas e experiências que exigem decisões de lógica, design e usabilidade.",
+      "Comecei a faculdade em plena pandemia, estudando de casa. Foi ali que conheci tudo o que existe por trás de um jogo: game design, arte, áudio e programação. Me encontrei na programação e não larguei mais. A cada semestre a turma entregava um jogo completo, o TCP (Trabalho de Conclusão de Período), e eu sempre ficava com o código.",
+    tags: ["Unity", "C#", "Game Design"],
   },
   {
     number: "03",
-    title: "Jogos como produto digital",
+    title: "Game Jams",
+    period: "2022 – 2024",
     description:
-      "No desenvolvimento de jogos educativos, comecei a unir mecânicas, progressão, perguntas, níveis de dificuldade, pixel art e adaptação para dispositivos móveis.",
+      "Game jam é uma maratona: equipes, um tema e poucos dias para entregar um jogo inteiro. Participei de várias durante a faculdade, e foi onde eu mais aprendi. Com o tempo apertado, não dava para ficar só no código, então acabei mexendo com áudio e game design também. Eu saía exausto e já pensando na próxima.",
+    tags: ["Prototipagem rápida", "Trabalho em equipe"],
+    link: { label: "Ver jogos no itch.io", href: "https://mateus-costa.itch.io" },
   },
   {
     number: "04",
-    title: "Foco em UX e qualidade",
+    title: "Pesquisa no IFRJ",
+    period: "2023 – 2024",
     description:
-      "Além de fazer funcionar, passei a observar como as pessoas navegam, onde a interface pode falhar e como responsividade, feedback e organização melhoram o produto final.",
+      "Lá pela metade do curso, surgiu a chance de entrar como bolsista no Grupo de Pesquisa em Jogos do IFRJ. Foi a primeira vez que vi um jogo meu servir para algo além de divertir. Me dediquei bastante, e isso me rendeu uma bolsa PIBIC. Alguns desses trabalhos viraram publicações acadêmicas.",
+    highlights: [
+      "Avaliação de conteúdo dinâmico com inferência semântica em Prolog",
+      "Serious game em VR (Meta Quest 2) para o ensino de astronomia no ensino fundamental",
+      "Jogo educativo sobre agricultura familiar na região de Paulo de Frontin",
+      "Balanceamento dinâmico de dificuldade com Inteligência Artificial (PIBIC)",
+    ],
+    tags: ["Unity", "C#", "Prolog", "VR", "Machine Learning"],
+    link: {
+      label: "Ver Currículo Lattes",
+      href: "http://lattes.cnpq.br/8414656873974358",
+    },
   },
   {
     number: "05",
-    title: "Próximo nível",
+    title: "Engenharia de Software — Universidade de Vassouras",
+    period: "2024 – 2025",
     description:
-      "Hoje direciono minha evolução principalmente para jogos, aplicativos e aplicações web modernas, buscando criar produtos com identidade, código limpo e experiências memoráveis.",
+      "Em janeiro de 2024 comecei Engenharia de Software na Universidade de Vassouras, ainda terminando Jogos Digitais. Conciliar duas faculdades foi puxado, mas valeu muito: nos cinco períodos que cursei, aprendi gestão de projetos, Scrum e desenvolvimento web. Também entrei num projeto de extensão para criar uma distribuição Linux para a universidade. Infelizmente ele não foi para frente, mas eu gostei tanto que continuei estudando Linux por conta própria.",
+    tags: ["Java", "SQL", "Scrum", "Linux", "HTML/CSS/JS"],
+  },
+  {
+    number: "06",
+    title: "Estágio — Observatório Nacional",
+    period: "fev/2024 – fev/2025",
+    description:
+      "No meio de tudo isso, fui selecionado para estagiar no Observatório Magnético de Vassouras, do Observatório Nacional. Foi meu primeiro contato com o dia a dia de uma equipe de verdade. Desenvolvi soluções web, automatizei processos internos e criei uma aplicação em Python para controlar os itens do observatório. Também cuidei de suporte, manutenção e backups.",
+    tags: ["Python", "Automação", "Linux", "Suporte"],
+  },
+  {
+    number: "07",
+    title: "Freelancer",
+    period: "2024 – hoje",
+    description:
+      "Com o diploma de Jogos Digitais na mão, comecei a pegar freelas: jogos para web, aplicativos mobile e desktop. Um dos projetos de que mais me orgulho é o sistema de gestão de imóveis alugados que fiz para uma imobiliária, do zero até a entrega, em dois meses.",
+    tags: ["Python", "Tkinter", "Firebase", "HTML5"],
+    link: {
+      label: "Ver no GitHub",
+      href: "https://github.com/MateusCPS/GerenciadorDeImoveis",
+    },
+  },
+  {
+    number: "08",
+    title: "Hoje",
+    period: "2026",
+    description:
+      "Hoje eu divido meu tempo entre as duas coisas de que mais gosto: jogos, com Unity e C#, e desenvolvimento web e back-end. Todo dia útil eu sento para construir algo novo para o portfólio. Ainda tenho muito para aprender, e é justamente isso que me anima. Agora estou em busca da minha próxima oportunidade.",
+    tags: ["Aberto a oportunidades"],
   },
 ];
 
@@ -192,17 +267,6 @@ export const projects: Project[] = [
     image: "/projects/MusicianLifeSimulator.png",
     liveUrl: "https://z3z0m.itch.io/musician-life-simulator-tcp4",
     repositoryUrl: "https://github.com/BurnOut-Games/TPC4",
-    featured: true,
-  },
-  {
-    title: "Job Challenge",
-    description:
-      "Job Challenge é um jogo educativo desenvolvido para um cliente, com o objetivo de ensinar porcentagem a estudantes do ensino médio de forma interativa e envolvente. Disponível diretamente no navegador, o jogo combina desafios matemáticos com uma jornada profissional, na qual os jogadores exploram diferentes setores de uma empresa e conquistam promoções à medida que avançam.",
-    category: "Jogo",
-    tags: ["Unity3D", "Visual Studio", "Trivia", "Web Game", "Prototype"],
-    image: "/projects/JobChallenge.png",
-    liveUrl: "https://job-challenge.vercel.app",
-    repositoryUrl: "https://github.com/MateusCPS/JobChallenge",
     featured: true,
   },
 ];
