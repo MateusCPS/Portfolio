@@ -7,18 +7,28 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-display" });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://seu-dominio.com"),
+  metadataBase: new URL("https://www.mateuscosta.site"),
   title: {
     default: "Mateus Costa — Jogos, aplicativos e experiências web",
-    template: "%s | Seu Nome",
+    template: "%s | Mateus Costa",
   },
-  description: "Portfólio de desenvolvimento de jogos, aplicativos e aplicações web com foco em UX, responsividade e código limpo.",
-  keywords: ["desenvolvedor de jogos", "desenvolvedor web", "aplicativos", "Next.js", "React", "UX", "jogos web"],
+  description:
+    "Portfólio de Mateus Costa, desenvolvedor de jogos, aplicativos e aplicações web. Conheça minha trajetória, meus projetos e entre em contato.",
+  keywords: ["Mateus Costa", "desenvolvedor de jogos", "desenvolvedor web", "Unity", "aplicativos", "Next.js", "portfólio"],
+  authors: [{ name: "Mateus Costa", url: "https://www.mateuscosta.site" }],
   openGraph: {
-    title: "Seu Nome — Jogos, aplicativos e experiências web",
-    description: "Produtos digitais interativos construídos com criatividade, experiência do usuário e tecnologia.",
+    title: "Mateus Costa — Jogos, aplicativos e experiências web",
+    description:
+      "Desenvolvedor de jogos e aplicações web. Conheça minha trajetória, meus projetos e entre em contato.",
+    url: "https://www.mateuscosta.site",
+    siteName: "Mateus Costa",
     type: "website",
     locale: "pt_BR",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Mateus Costa — Jogos, aplicativos e experiências web",
+    description: "Desenvolvedor de jogos e aplicações web. Conheça minha trajetória e meus projetos.",
   },
 };
 
