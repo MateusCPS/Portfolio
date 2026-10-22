@@ -142,6 +142,16 @@ export const principles = [
   },
 ];
 
+export type JourneyItem = {
+  number: string;
+  title: string;
+  period: string;
+  description: string;
+  highlights?: string[];
+  tags?: string[];
+  link?: { label: string; href: string };
+};
+
 export const journey: JourneyItem[] = [
   {
     number: "01",
