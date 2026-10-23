@@ -1,6 +1,6 @@
 "use client";
 
-import { useId, useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useId, useLayoutEffect, useRef, useState } from "react";
 
 type SkillTooltipProps = {
   label: string;
@@ -13,19 +13,35 @@ export function SkillTooltip({ label, description }: SkillTooltipProps) {
   const [open, setOpen] = useState(false);
   const [shift, setShift] = useState(0);
   const tooltipRef = useRef<HTMLSpanElement>(null);
+  const wrapperRef = useRef<HTMLSpanElement>(null);
+  const lastPointer = useRef("");
   const id = useId();
+
+  // No celular, tocar fora da pílula fecha o balão.
+  useEffect(() => {
+    if (!open) return;
+    const close = (event: PointerEvent) => {
+      if (!wrapperRef.current?.contains(event.target as Node)) setOpen(false);
+    };
+    document.addEventListener("pointerdown", close);
+    return () => document.removeEventListener("pointerdown", close);
+  }, [open]);
 
   // Mantém o balão dentro da tela quando a pílula está perto da borda.
   useLayoutEffect(() => {
-    if (!open || !tooltipRef.current) return;
+    if (!open) {
+      setShift(0);
+      return;
+    }
+    if (!tooltipRef.current) return;
     const margin = 12;
     const rect = tooltipRef.current.getBoundingClientRect();
-    const baseLeft = rect.left - shift;
-    const baseRight = rect.right - shift;
+    const baseLeft = rect.left;
+    const baseRight = rect.right;
     let next = 0;
     if (baseLeft < margin) next = margin - baseLeft;
     else if (baseRight > window.innerWidth - margin) next = window.innerWidth - margin - baseRight;
-    if (next !== shift) setShift(next);
+    setShift(next);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [open]);
 
@@ -38,32 +54,40 @@ export function SkillTooltip({ label, description }: SkillTooltipProps) {
 
   return (
     <span
+      ref={wrapperRef}
       className="relative inline-flex"
-      onMouseEnter={() => setOpen(true)}
-      onMouseLeave={() => setOpen(false)}
+      onPointerEnter={(event) => event.pointerType === "mouse" && setOpen(true)}
+      onPointerLeave={(event) => event.pointerType === "mouse" && setOpen(false)}
     >
       <button
         type="button"
         aria-describedby={open ? id : undefined}
-        onFocus={() => setOpen(true)}
+        onFocus={(event) => event.currentTarget.matches(":focus-visible") && setOpen(true)}
         onBlur={() => setOpen(false)}
-        onClick={() => setOpen((value) => !value)}
+        onPointerDown={(event) => (lastPointer.current = event.pointerType)}
+        onClick={() => {
+          // Com mouse o balão já abre no hover; o clique só alterna no toque e no teclado.
+          if (lastPointer.current !== "mouse") setOpen((value) => !value);
+          lastPointer.current = "";
+        }}
         onKeyDown={(event) => event.key === "Escape" && setOpen(false)}
         className={`${pillClass} cursor-help transition hover:border-primary hover:text-foreground focus-visible:border-primary focus-visible:text-foreground focus-visible:outline-none`}
       >
         {label}
       </button>
 
-      <span
-        ref={tooltipRef}
-        id={id}
-        role="tooltip"
-        style={{ transform: `translateX(calc(-50% + ${shift}px))` }}
-        className={`pointer-events-none absolute bottom-full left-1/2 z-20 mb-2 w-64 max-w-[calc(100vw-1.5rem)] rounded-xl border border-border bg-background px-3.5 py-2.5 text-left text-xs leading-5 text-foreground shadow-xl transition-opacity duration-150 ${open ? "opacity-100" : "invisible opacity-0"}`}
-      >
-        <span className="mb-0.5 block font-semibold text-primary">{label}</span>
-        {description}
-      </span>
+      {open && (
+        <span
+          ref={tooltipRef}
+          id={id}
+          role="tooltip"
+          style={{ transform: `translateX(calc(-50% + ${shift}px))` }}
+          className="pointer-events-none absolute bottom-full left-1/2 z-20 mb-2 w-64 max-w-[calc(100vw-1.5rem)] rounded-xl border border-border bg-background px-3.5 py-2.5 text-left text-xs leading-5 text-foreground shadow-xl"
+        >
+          <span className="mb-0.5 block font-semibold text-primary">{label}</span>
+          {description}
+        </span>
+      )}
     </span>
   );
 }

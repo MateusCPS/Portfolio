@@ -12,7 +12,7 @@ export function Hero() {
       <div className="hero-glow absolute -right-40 top-24 -z-10 size-[34rem] rounded-full blur-3xl" />
 
       <div className="mx-auto grid min-h-[calc(100vh-4.5rem)] max-w-7xl items-center gap-14 px-5 py-20 lg:grid-cols-[1.08fr_.92fr] lg:px-8">
-        <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65 }}>
+        <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65 }} className="min-w-0">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm text-muted-foreground shadow-sm">
             <span className="size-2 rounded-full bg-emerald-500" />
             {profile.availability}
@@ -42,7 +42,7 @@ export function Hero() {
           </div>
         </motion.div>
 
-        <motion.div initial={{ opacity: 0, scale: 0.94 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.15, duration: 0.7 }} className="relative">
+        <motion.div initial={{ opacity: 0, scale: 0.94 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.15, duration: 0.7 }} className="relative min-w-0">
           <div className="experience-board rounded-[2rem] border border-border bg-card p-4 shadow-2xl shadow-primary/10 sm:p-6">
             <div className="mb-5 flex items-center justify-between border-b border-border pb-4">
               <div className="flex gap-2"><span /><span /><span /></div>

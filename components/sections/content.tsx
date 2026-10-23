@@ -79,7 +79,7 @@ export function ContentSections() {
             <Reveal key={group.title} delay={index * 0.06}>
               <article className="rounded-3xl border border-border bg-card p-7">
                 <div className="mb-6 flex items-center gap-3"><div className="icon-box"><group.icon size={22} /></div><h3 className="text-xl font-semibold">{group.title}</h3></div><div className="mt-3 leading-7 text-muted-foreground">{group.description}</div>
-                <div className="flex flex-wrap gap-2">
+                <div className="mt-5 flex flex-wrap gap-2">
                   {group.skills.map((skill) => <SkillTooltip key={skill} label={skill} description={skillInfo[skill]} />)}
                 </div>
               </article>
@@ -91,10 +91,10 @@ export function ContentSections() {
       <section id="trajetoria" className="border-y border-border bg-muted/35 scroll-mt-20">
         <div className="section">
           <Reveal><SectionHeader eyebrow="Minha trajetória" title="Uma evolução construída através da prática." description="Minha história profissional ainda está sendo escrita, mas já possui uma direção clara: criar produtos digitais melhores a cada novo desafio." /></Reveal>
-          <div className="relative ml-4 border-l border-border pl-8 md:ml-8 md:pl-12">
+          <div className="relative ml-4 space-y-12 border-l border-border pl-8 md:ml-8 md:pl-12">
             {journey.map((item, index) => (
               <Reveal key={item.number} delay={index * 0.06}>
-                <article className="relative mb-12 last:mb-0">
+                <article className="relative">
                   <span className="absolute -left-[3.15rem] grid size-9 place-items-center rounded-full border border-primary bg-background font-mono text-xs text-primary md:-left-[4.15rem]">{item.number}</span>
                   <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
                     <h3 className="text-2xl font-semibold">{item.title}</h3>
@@ -160,7 +160,7 @@ export function ContentSections() {
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
               </div>
-                <div className="p-6"><p className="eyebrow mb-3">{project.category}</p><h3 className="text-xl font-semibold">{project.title}</h3><p className="mt-3 leading-7 text-muted-foreground">{project.description}</p><Button asChild variant="outline"><a href={project.liveUrl}> Ver Jogo <ArrowUpRight size={16} /></a></Button><Button asChild variant="outline"><a href={project.repositoryUrl}> Ver Repositório <ArrowUpRight size={16} /></a></Button><div className="mt-5 flex flex-wrap gap-2">{project.tags.map((tag) => <span key={tag} className="rounded-full bg-muted px-3 py-1 text-xs">{tag}</span>)}</div></div>
+                <div className="p-6"><p className="eyebrow mb-3">{project.category}</p><h3 className="text-xl font-semibold">{project.title}</h3><p className="mt-3 leading-7 text-muted-foreground">{project.description}</p><div className="mt-5 flex flex-wrap gap-2"><Button asChild variant="outline"><a href={project.liveUrl}> Ver Jogo <ArrowUpRight size={16} /></a></Button><Button asChild variant="outline"><a href={project.repositoryUrl}> Ver Repositório <ArrowUpRight size={16} /></a></Button></div><div className="mt-5 flex flex-wrap gap-2">{project.tags.map((tag) => <span key={tag} className="rounded-full bg-muted px-3 py-1 text-xs">{tag}</span>)}</div></div>
               </article>
             ))}
           </div>
