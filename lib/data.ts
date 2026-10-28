@@ -25,10 +25,10 @@ export const profile = {
 
 export const navigation = [
   { label: "Início", href: "#inicio" },
+  { label: "Projetos", href: "#projetos" },
   { label: "Sobre", href: "#sobre" },
   { label: "Especialidades", href: "#especialidades" },
   { label: "Trajetória", href: "#trajetoria" },
-  { label: "Projetos", href: "#projetos" },
   { label: "Contato", href: "#contato" },
 ];
 
@@ -242,6 +242,14 @@ export type Project = {
   liveUrl?: string;
   repositoryUrl?: string;
   featured?: boolean;
+  /** Imagens extras que aparecem no carrossel ao passar o mouse (a capa é `image`). */
+  gallery?: string[];
+  /** Seu papel no projeto, ex.: "Programação e áudio". */
+  role?: string;
+  /** Tamanho da equipe, ex.: "Equipe de 4" ou "Solo". */
+  team?: string;
+  /** O que você fez no projeto (aparece no botão "Ver o que eu fiz"). */
+  contributions?: string[];
 };
 
 // Adicione seus projetos aqui. Consulte o README para ver exemplos.
@@ -254,8 +262,16 @@ export const projects: Project[] = [
     tags: ["Unity3D", "Visual Studio", "Tower Defense", "2D Game"],
     image: "/projects/BuritiProject.png",
     liveUrl: "https://mateus-costa.itch.io/the-buritis-project",
+    gallery: ["/ProjectsGalery/Buriti-1.png", "/ProjectsGalery/Buriti-2.png"],
     repositoryUrl: "https://github.com/FernandoBMSouza/GameJamSX2",
     featured: true,
+    role: "Programação e áudio",
+    contributions: [
+      "Condições de vitória e derrota da partida",
+      "Inteligência artificial dos inimigos",
+      "Interface dinâmica, atualizada conforme o andamento do jogo",
+      "Criação dos áudios do jogo e implementação no Unity",
+    ],
   },
   {
     title: "Semeando Saberes",
@@ -265,18 +281,51 @@ export const projects: Project[] = [
     tags: ["Unity3D", "Visual Studio", "Simulator", "Serious Game", "Virtual Reality(VR)"],
     image: "/projects/SemeandoSaberes.png",
     liveUrl: "https://z3z0m.itch.io/semeando-saberes-tcp6",
+    gallery: ["/ProjectsGalery/Semeando-1.png", "/ProjectsGalery/Semeando-2.png"],
     repositoryUrl: "https://github.com/BurnOut-Games/TCP6_SemeandoSaberes",
     featured: true,
+    role: "Apoio em áudio",
+    contributions: ["Apoio na implementação dos áudios do jogo"],
   },
   {
     title: "Musician Life Simulator",
     description:
       "Jogo musical que acompanha a jornada de um aspirante a músico em busca de realizar o sonho de seu avô falecido: tocar em grandes palcos internacionais. Para alcançar esse objetivo, o jogador precisa aprimorar suas habilidades musicais, conquistar fama e dinheiro por meio de vídeos e apresentações, enquanto administra sua energia e saúde mental.",
     category: "Jogo",
-    tags: ["Unity3D", "Visual Studio", "Tycoon", "3D Game"],
+    tags: ["Unity3D", "Visual Studio", "Tycoon", "3D Game", "Mobile"],
     image: "/projects/MusicianLifeSimulator.png",
+    gallery: ["/ProjectsGalery/Musician-1.png", "/ProjectsGalery/Musician-2.png", "/ProjectsGalery/Musician-3.png"],
     liveUrl: "https://z3z0m.itch.io/musician-life-simulator-tcp4",
     repositoryUrl: "https://github.com/BurnOut-Games/TPC4",
     featured: true,
+    role: "Programação",
+    contributions: [
+      "Sistema para o jogador posicionar e editar objetos no cenário",
+      "Minijogo de carro completo",
+      "Persistência de dados para salvar e carregar o progresso",
+    ],
   },
+  {
+    title: "In a Bad Eggxinstece",
+    description:
+      "MOBA online no qual duas equipes de cinco jogadores se enfrentam em nome dos Senhores dos Pesadelos, Cthulhu e Kathanideos, invocados por um grupo de cultistas que abriu um portal entre os mundos. Para vencer, os jogadores precisam coletar as almas dos oponentes e usá-las para derrubar as torres inimigas, em partidas que combinam estratégia, trabalho em equipe e a estética retrô dos desenhos animados dos anos 90.",
+    category: "Jogo",
+    tags: ["Unity3D", "Visual Studio", "Moba", "3D Game"],
+    image: "/projects/InABadEggxistence.png",
+    gallery: ["/ProjectsGalery/BadEggxistence-1.png", "/ProjectsGalery/BadEggxistence-2.png", "/ProjectsGalery/BadEggxistence-3.png"],
+    liveUrl: "https://axlfontes.itch.io/in-a-bad-eggxistence",
+    repositoryUrl: "https://github.com/TCP3LOL/TCP3",
+    featured: true,
+    role: "Programação",
+    contributions: [
+      "Multiplayer online com Photon",
+      "Spawn dos jogadores na partida",
+      "Desenvolvimento dos Cooldowns das habilidades",
+      "Desenvolvimento de um personagem e suas habilidades",
+      "Implementação de assets e animações 3D ",
+      "Condições de vitória e derrota",
+      "Sistema de persistência de dados em JSON",
+    ],
+  },
+
 ];

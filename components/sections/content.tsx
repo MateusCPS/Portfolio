@@ -1,11 +1,13 @@
 "use client";
 
-import Image from "next/image";
 import { ArrowUpRight, Github, Mail, Plus, Rocket } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/reveal";
 import { journey, principles, profile, projects, skillGroups, skillInfo, specialties } from "@/lib/data";
 import { SkillTooltip } from "@/components/skill-tooltip";
+import { ProjectGallery } from "@/components/project-gallery";
+import { ProjectContributions } from "@/components/project-contributions";
+import { ProjectsCarousel } from "@/components/projects-carousel";
 import { Linkedin } from "lucide-react";
 
 function SectionHeader({ eyebrow, title, description }: { eyebrow: string; title: string; description?: string }) {
@@ -21,6 +23,31 @@ function SectionHeader({ eyebrow, title, description }: { eyebrow: string; title
 export function ContentSections() {
   return (
     <>
+      <section id="projetos" className="section scroll-mt-20">
+        <Reveal><SectionHeader eyebrow="Portfólio" title="Projetos desenvolvidos" description="Conheça alguns dos jogos que desenvolvi, explorando diferentes mecânicas, narrativas e desafios técnicos. Cada projeto representa uma oportunidade de transformar ideias em experiências interativas e aplicar meus conhecimentos em programação e desenvolvimento de jogos." /></Reveal>
+        {projects.length === 0 ? (
+          <Reveal>
+            <div className="project-empty rounded-[2rem] border border-dashed border-border p-8 text-center sm:p-14">
+              <div className="mx-auto grid size-16 place-items-center rounded-2xl bg-primary text-primary-foreground shadow-lg shadow-primary/20"><Plus size={28} /></div>
+              <h3 className="mt-6 text-2xl font-semibold">Projetos</h3>
+              <p className="mx-auto mt-3 max-w-xl leading-7 text-muted-foreground">
+                Conheça alguns dos jogos que desenvolvi, explorando diferentes mecânicas, narrativas e desafios técnicos. Cada projeto representa uma oportunidade de transformar ideias em experiências interativas e aplicar meus conhecimentos em programação e desenvolvimento de jogos.
+              </p>
+              <div className="mt-7 inline-flex items-center gap-2 rounded-full bg-muted px-4 py-2 font-mono text-sm text-muted-foreground">lib/data.ts → projects</div>
+            </div>
+          </Reveal>
+        ) : (
+          <ProjectsCarousel label="Projetos desenvolvidos">
+            {projects.map((project) => (
+              <article key={project.title} className="overflow-hidden rounded-3xl border border-border bg-card">
+                <ProjectGallery title={project.title} images={[project.image, ...(project.gallery ?? [])]} />
+                <div className="p-6"><p className="eyebrow mb-3">{project.category}</p><h3 className="text-xl font-semibold">{project.title}</h3><p className="mt-3 leading-7 text-muted-foreground">{project.description}</p><ProjectContributions role={project.role} team={project.team} contributions={project.contributions} /><div className="mt-5 flex flex-wrap gap-2"><Button asChild variant="outline"><a href={project.liveUrl}> Ver Jogo <ArrowUpRight size={16} /></a></Button><Button asChild variant="outline"><a href={project.repositoryUrl}> Ver Repositório <ArrowUpRight size={16} /></a></Button></div><div className="mt-5 flex flex-wrap gap-2">{project.tags.map((tag) => <span key={tag} className="rounded-full bg-muted px-3 py-1 text-xs">{tag}</span>)}</div></div>
+              </article>
+            ))}
+          </ProjectsCarousel>
+        )}
+      </section>
+
       <section id="sobre" className="section scroll-mt-20">
         <Reveal>
           <div className="grid gap-12 lg:grid-cols-[.8fr_1.2fr]">
@@ -132,39 +159,6 @@ export function ContentSections() {
             ))}
           </div>
         </div>
-      </section>
-
-      <section id="projetos" className="section scroll-mt-20">
-        <Reveal><SectionHeader eyebrow="Portfólio" title="Projetos desenvolvidos" description="Conheça alguns dos jogos que desenvolvi, explorando diferentes mecânicas, narrativas e desafios técnicos. Cada projeto representa uma oportunidade de transformar ideias em experiências interativas e aplicar meus conhecimentos em programação e desenvolvimento de jogos." /></Reveal>
-        {projects.length === 0 ? (
-          <Reveal>
-            <div className="project-empty rounded-[2rem] border border-dashed border-border p-8 text-center sm:p-14">
-              <div className="mx-auto grid size-16 place-items-center rounded-2xl bg-primary text-primary-foreground shadow-lg shadow-primary/20"><Plus size={28} /></div>
-              <h3 className="mt-6 text-2xl font-semibold">Projetos</h3>
-              <p className="mx-auto mt-3 max-w-xl leading-7 text-muted-foreground">
-                Conheça alguns dos jogos que desenvolvi, explorando diferentes mecânicas, narrativas e desafios técnicos. Cada projeto representa uma oportunidade de transformar ideias em experiências interativas e aplicar meus conhecimentos em programação e desenvolvimento de jogos.
-              </p>
-              <div className="mt-7 inline-flex items-center gap-2 rounded-full bg-muted px-4 py-2 font-mono text-sm text-muted-foreground">lib/data.ts → projects</div>
-            </div>
-          </Reveal>
-        ) : (
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {projects.map((project) => (
-              <article key={project.title} className="overflow-hidden rounded-3xl border border-border bg-card">
-                <div className="relative aspect-[16/10] overflow-hidden bg-muted">
-                <Image
-                  src={`${project.image}`}
-                  alt={`Captura de tela do projeto ${project.title}`}
-                  fill
-                  className="object-cover transition-transform duration-500 hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                />
-              </div>
-                <div className="p-6"><p className="eyebrow mb-3">{project.category}</p><h3 className="text-xl font-semibold">{project.title}</h3><p className="mt-3 leading-7 text-muted-foreground">{project.description}</p><div className="mt-5 flex flex-wrap gap-2"><Button asChild variant="outline"><a href={project.liveUrl}> Ver Jogo <ArrowUpRight size={16} /></a></Button><Button asChild variant="outline"><a href={project.repositoryUrl}> Ver Repositório <ArrowUpRight size={16} /></a></Button></div><div className="mt-5 flex flex-wrap gap-2">{project.tags.map((tag) => <span key={tag} className="rounded-full bg-muted px-3 py-1 text-xs">{tag}</span>)}</div></div>
-              </article>
-            ))}
-          </div>
-        )}
       </section>
 
       <section id="contato" className="section scroll-mt-20 pt-4">
