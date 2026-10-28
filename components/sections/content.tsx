@@ -3,7 +3,7 @@
 import { ArrowUpRight, Github, Mail, Plus, Rocket } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/reveal";
-import { journey, principles, profile, projects, skillGroups, skillInfo, specialties } from "@/lib/data";
+import { journey, profile, projects, skillGroups, skillInfo, tools } from "@/lib/data";
 import { SkillTooltip } from "@/components/skill-tooltip";
 import { ProjectGallery } from "@/components/project-gallery";
 import { ProjectContributions } from "@/components/project-contributions";
@@ -48,7 +48,8 @@ export function ContentSections() {
         )}
       </section>
 
-      <section id="sobre" className="section scroll-mt-20">
+      <section id="sobre" className="border-y border-border bg-muted/35 scroll-mt-20">
+        <div className="section">
         <Reveal>
           <div className="grid gap-12 lg:grid-cols-[.8fr_1.2fr]">
             <div>
@@ -68,51 +69,30 @@ export function ContentSections() {
             </div>
           </div>
         </Reveal>
-
-        <div className="mt-16 grid gap-5 md:grid-cols-3">
-          {principles.map((item, index) => (
-            <Reveal key={item.title} delay={index * 0.08}>
-              <article className="h-full rounded-3xl border border-border bg-card p-7 shadow-sm">
-                <item.icon className="mb-6 text-primary" size={26} />
-                <h3 className="text-xl font-semibold">{item.title}</h3>
-                <p className="mt-3 leading-7 text-muted-foreground">{item.description}</p>
-              </article>
-            </Reveal>
-          ))}
         </div>
       </section>
 
-      <section id="especialidades" className="border-y border-border bg-muted/35 scroll-mt-20">
-        <div className="section">
-          <Reveal><SectionHeader eyebrow="O que eu desenvolvo" title="Experiências digitais de ponta a ponta." description="Da primeira ideia à interface final, busco equilibrar lógica, design, desempenho e facilidade de manutenção." /></Reveal>
-          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {specialties.map((item, index) => (
-              <Reveal key={item.title} delay={index * 0.05}>
-                <article className="specialty-card group h-full rounded-3xl border border-border bg-background p-7">
-                  <div className="icon-box mb-6"><item.icon size={24} /></div>
-                  <h3 className="text-xl font-semibold">{item.title}</h3>
-                  <p className="mt-3 leading-7 text-muted-foreground">{item.description}</p>
-                </article>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section">
-        <Reveal><SectionHeader eyebrow="Conhecimentos" title="Tecnologias e competências que sustentam meus projetos." /></Reveal>
-        <div className="grid gap-5 md:grid-cols-2">
+      <section id="especialidades" className="section scroll-mt-20">
+        <Reveal><SectionHeader eyebrow="O que eu faço" title="Jogos, pesquisa e sistemas." description="As áreas em que atuo, com as tecnologias que uso em cada uma. Passe o mouse (ou toque) numa tecnologia para ver o que ela é." /></Reveal>
+        <div className="grid gap-5 lg:grid-cols-3">
           {skillGroups.map((group, index) => (
             <Reveal key={group.title} delay={index * 0.06}>
-              <article className="rounded-3xl border border-border bg-card p-7">
-                <div className="mb-6 flex items-center gap-3"><div className="icon-box"><group.icon size={22} /></div><h3 className="text-xl font-semibold">{group.title}</h3></div><div className="mt-3 leading-7 text-muted-foreground">{group.description}</div>
-                <div className="mt-5 flex flex-wrap gap-2">
+              <article className="flex h-full flex-col rounded-3xl border border-border bg-card p-7">
+                <div className="flex items-center gap-3"><div className="icon-box"><group.icon size={22} /></div><h3 className="text-xl font-semibold">{group.title}</h3></div>
+                <p className="mt-4 leading-7 text-muted-foreground">{group.description}</p>
+                <div className="mt-auto flex flex-wrap gap-2 pt-6">
                   {group.skills.map((skill) => <SkillTooltip key={skill} label={skill} description={skillInfo[skill]} />)}
                 </div>
               </article>
             </Reveal>
           ))}
         </div>
+        <Reveal>
+          <div className="mt-8 flex flex-wrap items-center gap-3">
+            <span className="text-sm font-medium text-muted-foreground">Ferramentas de trabalho:</span>
+            {tools.map((tool) => <SkillTooltip key={tool} label={tool} description={skillInfo[tool]} />)}
+          </div>
+        </Reveal>
       </section>
 
       <section id="trajetoria" className="border-y border-border bg-muted/35 scroll-mt-20">

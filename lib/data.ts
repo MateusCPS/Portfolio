@@ -1,16 +1,4 @@
-import {
-  Accessibility,
-  Braces,
-  Code2,
-  Gamepad2,
-  Layers3,
-  MonitorSmartphone,
-  Palette,
-  Rocket,
-  Smartphone,
-  Sparkles,
-  Workflow,
-} from "lucide-react";
+import { Code2, Gamepad2, GraduationCap } from "lucide-react";
 
 export const profile = {
   name: "Mateus Costa",
@@ -27,120 +15,64 @@ export const navigation = [
   { label: "Início", href: "#inicio" },
   { label: "Projetos", href: "#projetos" },
   { label: "Sobre", href: "#sobre" },
-  { label: "Especialidades", href: "#especialidades" },
+  { label: "O que eu faço", href: "#especialidades" },
   { label: "Trajetória", href: "#trajetoria" },
   { label: "Contato", href: "#contato" },
 ];
 
-export const specialties = [
+// "O que eu faço": cada área com uma frase de prova e as tecnologias (com balão explicativo).
+export const skillGroups = [
   {
     title: "Desenvolvimento de jogos",
     description:
-      "Criação de jogos para navegador com mecânicas objetivas, progressão por níveis, feedback imediato e experiências que unem aprendizado e diversão.",
+      "Mecânicas, IA de inimigos, sistemas de gameplay e multiplayer online em Unity, de game jams a um MOBA 5v5 com Photon.",
     icon: Gamepad2,
+    skills: ["Unity", "C#", "Photon", "Game Design"],
   },
   {
-    title: "Aplicações web",
+    title: "Jogos educativos e pesquisa",
     description:
-      "Desenvolvimento de aplicações modernas, responsivas e interativas, pensadas para funcionar bem em diferentes dispositivos e contextos de uso.",
-    icon: Braces,
+      "Serious games e experiências em VR desenvolvidos como pesquisador no IFRJ (PIBIC), e jogos educativos para clientes.",
+    icon: GraduationCap,
+    skills: ["Serious Games", "VR", "Prolog", "Machine Learning", "HTML5"],
   },
   {
-    title: "Aplicativos e produtos digitais",
+    title: "Web e sistemas",
     description:
-      "Transformação de ideias em produtos funcionais, organizando fluxos, telas, estados e interações de maneira clara e consistente.",
-    icon: Smartphone,
-  },
-  {
-    title: "UX e interfaces",
-    description:
-      "Atenção à hierarquia visual, legibilidade, navegação, acessibilidade e microinterações para tornar cada experiência simples e agradável.",
-    icon: Palette,
-  },
-  {
-    title: "Responsividade",
-    description:
-      "Interfaces adaptadas a celulares, tablets e computadores, evitando cortes de conteúdo e mantendo a experiência coerente em qualquer tela.",
-    icon: MonitorSmartphone,
-  },
-  {
-    title: "Código limpo e arquitetura",
-    description:
-      "Organização em componentes reutilizáveis, separação de responsabilidades e estruturas fáceis de compreender, manter e evoluir.",
-    icon: Workflow,
+      "Sistemas sob medida e aplicações web, de um sistema de gestão para uma imobiliária a este portfólio em Next.js.",
+    icon: Code2,
+    skills: ["Python", "Java", "Kotlin", "SQL", "Firebase", "Next.js", "TypeScript"],
   },
 ];
 
-export const skillGroups = [
-  {
-    title: "Desenvolvimento web",
-    description: "Desenvolvimento de aplicações web modernas e responsivas, com foco em interfaces intuitivas, componentes reutilizáveis e organização de código.",
-    icon: Code2,
-    skills: ["Next.js", "React", "TypeScript", "JavaScript", "HTML5", "CSS3"],
-  },
-  {
-    title: "Desenvolvimento de Jogos",
-    description: "Criação de experiências interativas que combinam programação, mecânicas de jogo e narrativa, buscando dar significado às ações do jogador e tornar cada experiência memorável.",
-    icon: Gamepad2,
-    skills: ["Unity 3d", "Game Design"],
-  },
-  {
-    title: "Aplicativos mobile",
-    description: "Desenvolvimento de aplicações mobile com atenção à experiência do usuário, à organização das interfaces e à criação de soluções funcionais para dispositivos Android.",
-    icon: Sparkles,
-    skills: ["UX/UI", "Android Studio", "Kotlin", "Java"],
-  },
-  {
-    title: "Qualidade e entrega",
-    description: "Organização e acompanhamento de projetos por meio de controle de versão, prototipação e ferramentas de colaboração, contribuindo para um desenvolvimento mais estruturado e consistente.",
-    icon: Rocket,
-    skills: ["Git", "GitHub", "Prototipação", "Figma", "Notion", "Metodologias Ágeis (Scrum)"],
-  },
-];
+// Ferramentas do dia a dia, exibidas numa linha abaixo das áreas.
+export const tools = ["Git", "GitHub", "Scrum", "Notion", "Figma"];
 
 // Explicação curta exibida ao passar o mouse (ou tocar) em cada competência.
-// A chave precisa ser exatamente igual ao nome usado em skillGroups.
+// A chave precisa ser exatamente igual ao nome usado em skillGroups e tools.
 export const skillInfo: Record<string, string> = {
-  "Next.js": "Framework baseado em React para criar sites e aplicações web rápidas, com rotas, renderização no servidor e otimização automática.",
-  React: "Biblioteca JavaScript para construir interfaces a partir de componentes reutilizáveis.",
-  TypeScript: "JavaScript com tipagem estática, que ajuda a encontrar erros antes de o código rodar e deixa projetos maiores mais seguros.",
-  JavaScript: "A linguagem de programação da web, responsável pela interatividade das páginas.",
-  HTML5: "Linguagem de marcação que define a estrutura e o conteúdo de uma página web.",
-  CSS3: "Linguagem de estilos que controla cores, layout, responsividade e animações das páginas.",
-  "Unity 3d": "Motor de jogos usado para criar jogos 2D, 3D e VR, programados em C#, para PC, web e dispositivos móveis.",
+  Unity: "Motor de jogos usado para criar jogos 2D, 3D e VR para PC, web e dispositivos móveis.",
+  "C#": "Linguagem de programação usada no Unity para escrever a lógica dos jogos.",
+  Photon: "Serviço de rede para jogos multiplayer online, que conecta os jogadores e sincroniza a partida entre eles.",
   "Game Design": "Planejamento das regras, mecânicas, progressão e experiência de um jogo, definindo o que torna ele divertido e significativo.",
-  "UX/UI": "UX é a experiência de uso (o quanto algo é fácil e agradável de usar); UI é a interface visual com que o usuário interage.",
-  "Android Studio": "Ambiente oficial do Google para desenvolver, testar e publicar aplicativos Android.",
-  Kotlin: "Linguagem moderna recomendada pelo Google para o desenvolvimento de aplicativos Android.",
+  "Serious Games": "Jogos criados com um objetivo além do entretenimento, como ensinar um conteúdo ou treinar uma habilidade.",
+  VR: "Realidade virtual: experiências imersivas em que o jogador usa um óculos, como o Meta Quest 2, para estar dentro do jogo.",
+  Prolog: "Linguagem de programação lógica, baseada em fatos e regras, usada para inferência e inteligência artificial.",
+  "Machine Learning": "Área da inteligência artificial em que modelos aprendem padrões a partir de dados, como classificar o perfil de um jogador.",
+  HTML5: "Linguagem que define a estrutura das páginas web; também usada para jogos que rodam direto no navegador.",
+  Python: "Linguagem versátil, usada em automações, sistemas desktop, análise de dados e back-end.",
   Java: "Linguagem orientada a objetos muito usada em sistemas corporativos, back-end e aplicativos Android.",
+  Kotlin: "Linguagem moderna que roda na mesma plataforma do Java, usada em back-end e no desenvolvimento Android.",
+  SQL: "Linguagem para consultar e organizar dados em bancos de dados relacionais.",
+  Firebase: "Plataforma do Google com banco de dados em tempo real, autenticação e hospedagem para aplicações.",
+  "Next.js": "Framework baseado em React para criar sites e aplicações web rápidas, com rotas, renderização no servidor e otimização automática.",
+  TypeScript: "JavaScript com tipagem estática, que ajuda a encontrar erros antes de o código rodar e deixa projetos maiores mais seguros.",
   Git: "Sistema de controle de versão que registra o histórico de alterações do código e permite trabalhar em equipe sem conflitos.",
   GitHub: "Plataforma para hospedar repositórios Git, revisar código e colaborar em projetos.",
-  "Prototipação": "Criação de versões simplificadas de telas ou jogos para testar ideias antes do desenvolvimento completo.",
-  Figma: "Ferramenta de design colaborativo para criar layouts, protótipos e interfaces.",
+  Scrum: "Forma de organizar o trabalho em ciclos curtos (sprints), com reuniões diárias, planejamento e retrospectivas.",
   Notion: "Ferramenta de organização para documentação, planejamento e gestão de tarefas do projeto.",
-  "Metodologias Ágeis (Scrum)": "Forma de organizar o trabalho em ciclos curtos (sprints), com reuniões diárias, planejamento e retrospectivas para entregar valor continuamente.",
+  Figma: "Ferramenta de design colaborativo para criar layouts, protótipos e interfaces.",
 };
-
-export const principles = [
-  {
-    title: "Experiência antes do excesso",
-    description:
-      "Interações e animações devem ajudar o usuário a entender o produto, e não apenas decorar a tela.",
-    icon: Accessibility,
-  },
-  {
-    title: "Criatividade com propósito",
-    description:
-      "Elementos de jogos, identidade visual e recursos interativos precisam reforçar a proposta da experiência.",
-    icon: Sparkles,
-  },
-  {
-    title: "Estrutura preparada para crescer",
-    description:
-      "O projeto deve continuar organizado quando novas páginas, funcionalidades e conteúdos forem adicionados.",
-    icon: Layers3,
-  },
-];
 
 export type JourneyItem = {
   number: string;
